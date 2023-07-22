@@ -4,7 +4,8 @@
   "description": "delete me",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development",
+    "start": "concurrently \"webpack serve --mode development\" \"nodemon server.js\"",
+    "start:prod": "forever start server.js",
     "test": "jest",
     "build": "webpack --mode production"
   },
@@ -16,12 +17,14 @@
     "@babel/preset-env": "^7.21.5",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
+    "concurrently": "^8.2.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.1",
     "jest": "^29.5.0",
     "mini-css-extract-plugin": "^2.7.5",
+    "nodemon": "^3.0.1",
     "postcss-loader": "^7.3.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.80.0",
@@ -29,6 +32,10 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "core-js": "^3.30.1"
+    "core-js": "^3.30.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "koa": "^2.14.2",
+    "koa-body": "^6.0.1"
   }
 }
