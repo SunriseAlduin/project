@@ -4,10 +4,12 @@
   "description": "delete me",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"webpack serve --mode development\" \"nodemon server.js\"",
-    "start:prod": "forever start server.js",
-    "test": "jest",
-    "build": "webpack --mode production"
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js"
+  },
+  "engines" : {
+    "node": "11.x"
   },
   "author": "nikitos",
   "license": "ISC",
